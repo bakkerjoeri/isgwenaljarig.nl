@@ -1,0 +1,52 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body {
+	background-color: black;
+}
+
+.video-background {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -100;
+	opacity: 1;
+	transition: opacity 8s;
+}
+
+.video-background.is-hidden {
+	opacity: 0;
+}
+
+.countdown {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	max-width: 100%;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	mix-blend-mode: difference;
+}
+
+.countdown h1 {
+	margin: 20px;
+	font-family: sans-serif;
+	font-size: 62px;
+	line-height: 1.2em;
+	text-align: center;
+}
+
+.countdown p {
+	margin: 20px;
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 24px;
+	line-height: 1.45em;
+}

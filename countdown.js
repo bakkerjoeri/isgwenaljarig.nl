@@ -26,10 +26,18 @@ function update() {
 
 	if (shouldWeCelebrate(birthday)) {
 		videoBackgroundElement.classList.remove('is-hidden');
+		videoBackgroundElement.classList.remove('close');
+		videoBackgroundElement.classList.remove('very-close');
+		videoBackgroundElement.classList.remove('today');
+
 		countdownElement.innerHTML = `
 			<h1>Jaaaa 🎉🎉🎉🎉<br/><br/>Gwen is jarig!</h1>
 		`;
+
+		document.title = '🎉 Gwen is jarig!';
 	} else {
+		videoBackgroundElement.classList.add('is-hidden');
+
 		const timeLeft = birthday.diff(dayjs());
 		const secondsLeft = Math.floor((timeLeft / 1000) % 60);
 		const minutesLeft = Math.floor((timeLeft / (1000 * 60)) % 60);
@@ -39,10 +47,19 @@ function update() {
 		let title = 'Nope.';
 
 		if (daysLeft > 7 && daysLeft <= 31) {
+			videoBackgroundElement.classList.remove('is-hidden');
+			videoBackgroundElement.classList.add('close');
+
 			title = 'Het komt dichtbij!!'
 		} else if (daysLeft <= 7 && daysLeft > 0) {
+			videoBackgroundElement.classList.remove('is-hidden');
+			videoBackgroundElement.classList.add('very-close');
+
 			title = `Ooh, nog maar ${daysLeft} ${daysLeft === 1 ? 'nachtje' : 'nachtjes'} slapen!`;
 		} else if (daysLeft === 0) {
+			videoBackgroundElement.classList.remove('is-hidden');
+			videoBackgroundElement.classList.add('today');
+
 			title = `BIJNA!`;
 		}
 
@@ -56,5 +73,8 @@ function update() {
 				${secondsLeft} ${secondsLeft === 1 ? 'seconde' : 'seconden'}.
 			</p>
 		`;
+
+		document.title = 'Is Gwen al jarig?';
+
 	}
 }

@@ -24,6 +24,18 @@ body {
 	opacity: 0;
 }
 
+.video-background.close {
+	opacity: 0.05;
+}
+
+.video-background.very-close {
+	opacity: 0.1;
+}
+
+.video-background.today {
+	opacity: 0.2;
+}
+
 .countdown {
 	display: flex;
 	flex-direction: column;
